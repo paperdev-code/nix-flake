@@ -22,6 +22,7 @@
   home.packages = with pkgs;
     [
       fastfetch
+      trash-cli
     ];
 
   home.stateVersion = stateVersion;
