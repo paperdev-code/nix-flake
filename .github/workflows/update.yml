@@ -20,5 +20,5 @@ jobs:
         with:
           add: 'flake.lock'
           message: update flake.lock
-          comitter_name: github-actions
-          commiter_email: actions@github.com
+          committer_name: github-actions
+          committer_email: actions@github.com
