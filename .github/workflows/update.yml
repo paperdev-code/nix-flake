@@ -1,0 +1,24 @@
+name: nix flake update
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * *'
+
+jobs:
+  nix-flake-update:
+    if: github.repository == 'paperdev-code/nix-flake'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v27
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+      - run: nix flake update
+      - run: nix flake check
+      - uses: Endbug/add-and-commit@v9
+        with:
+          add: 'flake.lock'
+          message: update flake.lock
+          comitter_name: github-actions
+          commiter_email: actions@github.com
