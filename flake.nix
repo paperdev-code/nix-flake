@@ -42,11 +42,8 @@
       nixosConfigurations = lib.nixos.mkSystems {
         "AIVD-Mainframe-WSL" = {
           inherit system pkgs;
-
           wsl = true;
-
           users = [ "paperdev" ];
-
           stateVersion = "24.11";
         };
       };

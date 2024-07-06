@@ -13,41 +13,40 @@ in
       (hostname: conf: nixpkgs.lib.nixosSystem rec {
         inherit (conf) system pkgs;
 
-        specialArgs =
+        specialArgs = {
+          inherit (conf) stateVersion;
+          inherit (self) inputs outputs;
+          inherit paths;
+        };
+
+        modules = [
+          self.inputs.home-manager.nixosModules.home-manager
           {
-            inherit (conf) stateVersion;
-            inherit (self) inputs outputs;
-            inherit paths;
-          };
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = specialArgs;
+            };
 
-        modules =
-          [
-            self.inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager =
-                {
-                  useGlobalPkgs = true;
-                  useUserPackages = true;
-                  extraSpecialArgs = specialArgs;
-                };
+            nix.settings.experimental-features = [
+              "nix-command"
+              "flakes"
+            ];
 
-              nix.settings.experimental-features =
-                [
-                  "nix-command"
-                  "flakes"
-                ];
-
-              networking.hostName = hostname;
-              system.stateVersion = conf.stateVersion;
-            }
-            (paths.host hostname)
-          ] ++ (if (conf.wsl or false) then [
-            self.inputs.nixos-wsl.nixosModules.wsl
-            {
-              wsl.enable = true;
-              wsl.defaultUser = "${(elemAt conf.users 0)}";
-            }
-          ] else [ ]) ++ (paths.users conf.users);
+            networking.hostName = hostname;
+            system.stateVersion = conf.stateVersion;
+          }
+          (paths.host hostname)
+        ] ++ (if (conf.wsl or false) then [
+          # preferably this is not here,
+          # WSL as module,
+          # but i'll have to figure out the `wsl.defaultUser` thing.
+          self.inputs.nixos-wsl.nixosModules.wsl
+          {
+            wsl.enable = true;
+            wsl.defaultUser = "${(elemAt conf.users 0)}";
+          }
+        ] else [ ]) ++ (paths.users conf.users);
       })
       configs;
 }

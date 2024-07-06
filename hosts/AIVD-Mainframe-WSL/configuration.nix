@@ -3,7 +3,7 @@
 }:
 {
   imports = [
-      (paths.module "locale")
+    (paths.module "locale")
   ];
 
   # usbip support through WSL
