@@ -19,7 +19,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-wsl, ... }:
+  outputs = { self, nixpkgs, ... }:
     let
       inherit (self) inputs outputs;
 
