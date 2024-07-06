@@ -7,7 +7,7 @@
   imports =
     [
       ./git.nix
-      (paths.dotfile "nushell")
+      (paths.module "HM/nushell")
     ];
 
   home.username = "paperdev";

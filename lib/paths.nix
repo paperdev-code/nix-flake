@@ -9,14 +9,12 @@ in
   (func_name: dir:
     sub_path: validatePath ("${flake_root}/${dir}/${sub_path}"))
   {
+    root = ".";
     host = "hosts";
     user = "users";
-    root = ".";
-    dotfile = "dotfiles";
     module = "modules";
   }) //
 {
-  dotfiles = dirs: (map (dir: (lib.paths.dotfile dir)) dirs);
   users = dirs: (map (dir: (lib.paths.user dir)) dirs);
   modules = dirs: (map (dir: (lib.paths.module dir)) dirs);
 }

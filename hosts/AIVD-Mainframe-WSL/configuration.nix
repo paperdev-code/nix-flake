@@ -2,10 +2,9 @@
 , ...
 }:
 {
-  imports = (paths.modules
-    [
-      "locale"
-    ]);
+  imports = [
+      (paths.module "locale")
+  ];
 
   # usbip support through WSL
   services.udev.enable = true;
