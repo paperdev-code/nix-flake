@@ -1,5 +1,4 @@
 { lib
-, ...
 }:
 let
   inherit (builtins) mapAttrs pathExists;
