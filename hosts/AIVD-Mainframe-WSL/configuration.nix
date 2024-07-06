@@ -6,6 +6,12 @@
     (paths.module "locale")
   ];
 
+  modules.locale = {
+    enable = true;
+    timeZone = "Europe/Amsterdam";
+    lcPrefix = "nl_NL";
+  };
+
   # usbip support through WSL
   services.udev.enable = true;
 
