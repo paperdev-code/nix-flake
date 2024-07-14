@@ -5,24 +5,28 @@
 }:
 {
   imports = [
-      ./git.nix
-      (paths.module "HM/nushell")
-    ];
+    ./git.nix
+    (paths.module "HM/nushell")
+    (paths.module "HM/neovim")
+  ];
 
   home.username = "paperdev";
   home.homeDirectory = "/home/paperdev";
 
-  hm-modules.nushell.enable = true;
+  hm-modules = {
+    nushell.enable = true;
+    neovim.enable = true;
+  };
 
   programs = {
-      home-manager.enable = true;
-      lazygit.enable = true;
-    };
+    home-manager.enable = true;
+    lazygit.enable = true;
+  };
 
   home.packages = with pkgs; [
-      fastfetch
-      trash-cli
-    ];
+    fastfetch
+    trash-cli
+  ];
 
   home.stateVersion = stateVersion;
 }
