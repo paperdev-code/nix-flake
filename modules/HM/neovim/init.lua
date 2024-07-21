@@ -187,6 +187,10 @@ now(function()
     vim.fn.sign_define('DiagnosticSign' .. name, { text = icon, texthl = 'DiagnosticSign' .. name })
   end
 
+  local function detect_bin(binary)
+    return vim.fn.executable(binary) == 1
+  end
+
   lspconfig.nil_ls.setup({ })
   lspconfig.lua_ls.setup({
     settings = {
@@ -200,6 +204,8 @@ now(function()
       },
     },
   })
+
+  if detect_bin('zls') then lspconfig.zls.setup({}) end
 end)
 
 later(function()
