@@ -206,6 +206,7 @@ now(function()
   })
 
   if detect_bin('zls') then lspconfig.zls.setup({}) end
+  if detect_bin('ruff-lsp') then lspconfig.ruff_lsp.setup({}) end
 end)
 
 later(function()
