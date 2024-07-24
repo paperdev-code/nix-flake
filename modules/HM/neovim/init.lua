@@ -350,7 +350,7 @@ later(function()
       "notify",
       "qf",
       "query",
-      "startuptime", 
+      "startuptime",
     },
 
     callback = function(event)
