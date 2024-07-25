@@ -212,7 +212,7 @@ end)
 later(function()
   local wk = require("which-key")
   wk.setup({
-    window = {
+    win = {
       border = "rounded",
     },
   })

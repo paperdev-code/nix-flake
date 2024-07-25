@@ -2,8 +2,8 @@
   "catppuccin":
   {
     "_github": "catppuccin/nvim",
-    "hash": "sha256-yTVou/WArEWygBBs2NFPI9Dm9iSGfwVftKFbOAGl8tk=",
-    "url": "https://github.com/catppuccin/nvim/archive/refs/tags/v1.7.0.tar.gz"
+    "hash": "sha256-427KWyL1PpMXMYHMUEY8c/bBOicllLMPq9ajXy4hVMc=",
+    "url": "https://github.com/catppuccin/nvim/archive/refs/tags/v1.8.0.tar.gz"
   },
   "gitsigns-nvim":
   {
@@ -44,13 +44,13 @@
   "toggleterm-nvim":
   {
     "_github": "akinsho/toggleterm.nvim",
-    "hash": "sha256-mM5bGgAemsRJD9U6U5K6ia5qb8NaTusM99x6xrtEBfw=",
-    "url": "https://github.com/akinsho/toggleterm.nvim/archive/refs/tags/v2.11.0.tar.gz"
+    "hash": "sha256-hJ6nBCgSyYF1pY4lX+b8WZd49i5F6BwOmrl7xVSIwRw=",
+    "url": "https://github.com/akinsho/toggleterm.nvim/archive/refs/tags/v2.12.0.tar.gz"
   },
   "which-key-nvim":
   {
     "_github": "folke/which-key.nvim",
-    "hash": "sha256-BI8ywHaofcWrtIO/r9AsYHuI66f407NdZJYaJeRbij0=",
-    "url": "https://github.com/folke/which-key.nvim/archive/refs/tags/v3.3.0.tar.gz"
+    "hash": "sha256-nv9s4/ax2BoL9IQdk42uN7mxIVFYiTK+1FVvWDKRnGM=",
+    "url": "https://github.com/folke/which-key.nvim/archive/refs/tags/v3.13.2.tar.gz"
   }
 }
