@@ -3,20 +3,25 @@
 , nixpkgs
 }:
 let
-  inherit (builtins) mapAttrs map elemAt;
+  inherit (builtins) mapAttrs elemAt;
   inherit (lib) paths;
-  inherit (nixpkgs.lib) mkIf;
 in
 {
   mkSystems = configs:
     mapAttrs
       (hostname: conf: nixpkgs.lib.nixosSystem rec {
-        inherit (conf) system pkgs;
+        inherit (conf) system;
+
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
 
         specialArgs = {
           inherit (conf) stateVersion;
           inherit (self) inputs outputs;
           inherit paths;
+          primaryUser = (elemAt conf.users 0);
         };
 
         modules = [
@@ -36,17 +41,8 @@ in
             networking.hostName = hostname;
             system.stateVersion = conf.stateVersion;
           }
-          (paths.host hostname)
-        ] ++ (if (conf.wsl or false) then [
-          # preferably this is not here,
-          # WSL as module,
-          # but i'll have to figure out the `wsl.defaultUser` thing.
-          self.inputs.nixos-wsl.nixosModules.wsl
-          {
-            wsl.enable = true;
-            wsl.defaultUser = "${(elemAt conf.users 0)}";
-          }
-        ] else [ ]) ++ (paths.users conf.users);
+          (paths.host (conf.derivedFromHost or hostname))
+        ] ++ (paths.users conf.users);
       })
       configs;
 }

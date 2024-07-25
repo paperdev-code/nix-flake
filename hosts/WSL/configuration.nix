@@ -1,10 +1,16 @@
-{ paths
+{ inputs
+, paths
+, primaryUser
 , ...
 }:
 {
   imports = [
+    inputs.nixos-wsl.nixosModules.wsl
     (paths.module "locale")
   ];
+
+  wsl.enable = true;
+  wsl.defaultUser = primaryUser;
 
   modules.locale = {
     enable = true;

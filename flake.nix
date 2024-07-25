@@ -4,10 +4,6 @@
       url = "github:nixos/nixpkgs?ref=nixos-unstable";
     };
 
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-    };
-
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,17 +17,10 @@
 
   outputs = { self, nixpkgs, ... }:
     let
-      inherit (self) inputs outputs;
-
       system = "x86_64-linux";
 
-      overlays = [
-        (final: prev: { })
-      ];
-
       pkgs = import nixpkgs {
-        inherit system overlays;
-        config.allowUnfree = true;
+        inherit system;
       };
 
       lib = import ./lib {
@@ -41,8 +30,8 @@
     {
       nixosConfigurations = lib.nixos.mkSystems {
         "AIVD-Mainframe-WSL" = {
-          inherit system pkgs;
-          wsl = true;
+          system = "x86_64-linux";
+          derivedFromHost = "WSL";
           users = [ "paperdev" ];
           stateVersion = "24.11";
         };
