@@ -6,14 +6,14 @@ pcall(function() vim.loader.enable() end)
 local pkgs_path = vim.fn.stdpath('data') .. '/site/'
 local mini_path = pkgs_path .. 'pack/deps/start/mini.nvim'
 
-require('mini.deps').setup( { path = { package = path_package } })
+require('mini.deps').setup({ path = { package = path_package } })
 local now, later = MiniDeps.now, MiniDeps.later
 
 now(function()
   local opt = vim.opt
 
   opt.autowrite = true
-  
+
   if not vim.env.SSH_TTY then
     opt.clipboard = 'unnamedplus'
   end
@@ -46,7 +46,7 @@ now(function()
   opt.winminwidth = 5
   opt.wrap = false
 
-  for _, provider in ipairs({"node", "perl", "python3", "ruby"}) do
+  for _, provider in ipairs({ "node", "perl", "python3", "ruby" }) do
     vim.g['loaded_' .. provider .. '_provider'] = 0
   end
 
@@ -191,7 +191,7 @@ now(function()
     return vim.fn.executable(binary) == 1
   end
 
-  lspconfig.nil_ls.setup({ })
+  lspconfig.nil_ls.setup({})
   lspconfig.lua_ls.setup({
     settings = {
       Lua = {
@@ -224,9 +224,9 @@ later(function()
       { "<leader>h", group = "hooks" },
       { "<leader>q", group = "quit/sessions" },
       { "<leader>t", group = "toggle" },
-      { "[", group = "prev" },
-      { "]", group = "next" },
-      { "g", group = "goto" },
+      { "[",         group = "prev" },
+      { "]",         group = "next" },
+      { "g",         group = "goto" },
     },
   })
 end)
