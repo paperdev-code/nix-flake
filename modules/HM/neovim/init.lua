@@ -205,7 +205,10 @@ now(function()
     },
   })
 
-  if detect_bin('zls') then lspconfig.zls.setup({}) end
+  if detect_bin('zls') then
+    lspconfig.zls.setup({})
+    vim.g.zig_fmt_parse_errors = 0
+  end
   if detect_bin('ruff') then
     lspconfig.ruff.setup({
       on_attach = function(_, buf)
