@@ -26,7 +26,6 @@
   home.packages = with pkgs; [
     fastfetch
     trash-cli
-    wget
   ];
 
   home.stateVersion = stateVersion;

@@ -1,4 +1,5 @@
 { inputs
+, pkgs
 , paths
 , primaryUser
 , ...
@@ -23,4 +24,14 @@
 
   # start ssh-agent as a systemd service
   programs.ssh.startAgent = true;
+
+  # run foreign binaries on Nix
+  programs.nix-ld = {
+    enable = true;
+    package = pkgs.nix-ld-rs;
+  };
+
+  environment.systemPackages = [
+    pkgs.wget
+  ];
 }
