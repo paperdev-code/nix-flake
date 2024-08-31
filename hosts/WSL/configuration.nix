@@ -23,7 +23,8 @@
   services.udev.enable = true;
 
   # start ssh-agent as a systemd service
-  programs.ssh.startAgent = true;
+  # FIXME: (Microsoft broke this)
+  # programs.ssh.startAgent = true;
 
   # run foreign binaries on Nix
   programs.nix-ld = {
