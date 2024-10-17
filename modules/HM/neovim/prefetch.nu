@@ -10,7 +10,7 @@ def latest-tag-from-github [repo: string] {
 
 def nix-prefetch-source [url: string] {
   let base32 = ^nix-prefetch-url --unpack --name source --type sha256 $url
-  ^nix hash to-sri --type sha256 $base32
+  ^nix hash convert --hash-algo sha256 --to sri $base32
 }
 
 $plugins | transpose name meta | par-each { |plugin|
