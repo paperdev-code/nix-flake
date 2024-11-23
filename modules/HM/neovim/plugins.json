@@ -11,8 +11,8 @@
   },
   "indent-blankline-nvim": {
     "_github": "lukas-reineke/indent-blankline.nvim",
-    "hash": "sha256-OKtaibgT9uPQQmddfj7YKgAYc7lz4ne1dbUz9PdRAvA=",
-    "url": "https://github.com/lukas-reineke/indent-blankline.nvim/archive/refs/tags/v3.8.2.tar.gz"
+    "hash": "sha256-WVDNi/woG0ohPEYzM83mmXDCRNYnQbqooSDVUtBsJbY=",
+    "url": "https://github.com/lukas-reineke/indent-blankline.nvim/archive/refs/tags/v3.8.5.tar.gz"
   },
   "mini-nvim": {
     "_github": "echasnovski/mini.nvim",
@@ -36,8 +36,8 @@
   },
   "toggleterm-nvim": {
     "_github": "akinsho/toggleterm.nvim",
-    "hash": "sha256-hJ6nBCgSyYF1pY4lX+b8WZd49i5F6BwOmrl7xVSIwRw=",
-    "url": "https://github.com/akinsho/toggleterm.nvim/archive/refs/tags/v2.12.0.tar.gz"
+    "hash": "sha256-RKDVxkiko7WZLsjAZaDCKTsmKPoSK91YjQ8INJwlgDE=",
+    "url": "https://github.com/akinsho/toggleterm.nvim/archive/refs/tags/v2.13.0.tar.gz"
   },
   "which-key-nvim": {
     "_github": "folke/which-key.nvim",
