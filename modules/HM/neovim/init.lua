@@ -160,6 +160,10 @@ now(function()
 end)
 
 now(function()
+  require('mini.completion').setup({})
+end)
+
+now(function()
   require('nvim-treesitter.configs').setup({
     highlight = { enable = true },
     incremental_selection = {
