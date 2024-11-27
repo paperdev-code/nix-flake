@@ -14,7 +14,14 @@ now(function()
 
   opt.autowrite = true
 
-  if not vim.env.SSH_TTY then
+  if vim.env.WSL_DISTRO_NAME ~= nil then
+    vim.g.clipboard = {
+      name = 'winclip',
+      copy =  { ["+"] = { "clip.exe" },   ["*"] = { "clip.exe" } },
+      paste = { ["+"] = { "nvim_paste" }, ["*"] = { "nvim_paste" } },
+      cache_enabled = true
+    }
+  elseif not vim.env.SSH_TTY then
     opt.clipboard = 'unnamedplus'
   end
 
