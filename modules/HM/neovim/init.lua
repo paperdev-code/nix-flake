@@ -6,7 +6,7 @@ pcall(function() vim.loader.enable() end)
 local pkgs_path = vim.fn.stdpath('data') .. '/site/'
 local mini_path = pkgs_path .. 'pack/deps/start/mini.nvim'
 
-require('mini.deps').setup({ path = { package = path_package } })
+require('mini.deps').setup({ path = { package = mini_path } })
 local now, later = MiniDeps.now, MiniDeps.later
 
 now(function()
