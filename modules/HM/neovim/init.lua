@@ -217,8 +217,22 @@ now(function()
   })
 
   if detect_bin('zls') then
-    lspconfig.zls.setup({})
+    lspconfig.zls.setup({
+      settings = {
+        zls = {
+          enable_build_on_save = true,
+          build_on_save_args = {"check"},
+        }
+      }
+    })
     vim.g.zig_fmt_parse_errors = 0
+    vim.g.zig_fmt_autosave = 0
+    vim.api.nvim_create_autocmd('BufWritePre',{
+      pattern = {"*.zig", "*.zon"},
+      callback = function(_)
+        vim.lsp.buf.format()
+      end
+    })
   end
   if detect_bin('ruff') then
     lspconfig.ruff.setup({
