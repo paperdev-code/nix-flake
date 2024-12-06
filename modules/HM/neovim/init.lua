@@ -16,12 +16,20 @@ now(function()
 
   if vim.env.WSL_DISTRO_NAME ~= nil then
     vim.g.clipboard = {
-      name = 'winclip',
-      copy =  { ["+"] = { "clip.exe" },   ["*"] = { "clip.exe" } },
-      paste = { ["+"] = { "nvim_paste" }, ["*"] = { "nvim_paste" } },
-      cache_enabled = true
-    }
-  elseif not vim.env.SSH_TTY then
+      name = "wslclipboard",
+      copy = {
+        ["+"] = "clip.exe",
+        ["*"] = "clip.exe",
+      },
+      paste = {
+         ["+"] = "powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace(\"`r\", \"\"))",
+         ["*"] = "powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace(\"`r\", \"\"))",
+      },
+      cache_enabled = 0,
+  }
+  end
+  
+  if not vim.env.SSH_TTY then
     opt.clipboard = 'unnamedplus'
   end
 
