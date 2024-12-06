@@ -32,6 +32,9 @@
     package = pkgs.nix-ld-rs;
   };
 
+  # docker
+  virtualisation.docker.enable = true;
+
   environment.systemPackages = [
     pkgs.wget
   ];

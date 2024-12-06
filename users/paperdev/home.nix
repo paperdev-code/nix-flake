@@ -26,6 +26,7 @@
   home.packages = with pkgs; [
     fastfetch
     trash-cli
+    lazydocker
   ];
 
   home.stateVersion = stateVersion;
