@@ -271,6 +271,7 @@ now(function()
       },
     },
   })
+  lspconfig.nushell.setup({})
 
   if detect_bin("zls") then
     lspconfig.zls.setup({

@@ -31,6 +31,7 @@ let
         python
         zig
         vimdoc
+        nu
       ]);
     };
 
