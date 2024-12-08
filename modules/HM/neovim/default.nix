@@ -66,6 +66,10 @@ in
         toggleterm-nvim
         which-key-nvim
         nvim-treesitter
+        luasnip
+        nvim-cmp
+        cmp-nvim-lsp
+        lspkind-nvim
       ];
     };
 
