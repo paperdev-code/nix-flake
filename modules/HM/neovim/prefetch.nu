@@ -4,8 +4,13 @@ let plugins = open plugins.json
 def latest-tag-from-github [repo: string] {
   let api_url = $'https://api.github.com/repos/($repo)/tags'
   let tag_name = http get $api_url | get 0 | $in.name
-  let archive_url = $'https://github.com/($repo)/archive/refs/tags/($tag_name).tar.gz'
-  $archive_url
+  $'https://github.com/($repo)/archive/refs/tags/($tag_name).tar.gz'
+}
+
+def latest-commit-from-github [repo: string] {
+  let api_url = $'https://api.github.com/repos/($repo)/commits'
+  let sha = http get $api_url | get 0 | $in.sha
+  $'https://github.com/($repo)/archive/($sha).tar.gz'
 }
 
 def nix-prefetch-source [url: string] {
@@ -14,7 +19,11 @@ def nix-prefetch-source [url: string] {
 }
 
 $plugins | transpose name meta | par-each { |plugin|
-  let url = latest-tag-from-github $plugin.meta._github
+  let cmd = $plugin.meta.'_github' | split row ':'
+  let url = match ($cmd.1) {
+    'latest' => (latest-commit-from-github $cmd.0)
+    'tagged' => (latest-tag-from-github $cmd.0)
+  }
   let hash = nix-prefetch-source $url
   { $"($plugin.name)": (
     $plugin.meta
