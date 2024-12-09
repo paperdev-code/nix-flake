@@ -4,7 +4,10 @@
 , ...
 }:
 let
-  inherit (builtins) readFile;
+  inherit (builtins)
+    fromJSON
+    readFile;
+
   inherit (lib)
     mkIf
     mkEnableOption
@@ -40,7 +43,7 @@ in
 
       programs.oh-my-posh = {
         enable = true;
-        useTheme = "pure";
+        settings = (fromJSON (readFile ./omp.json));
       };
     }
 
