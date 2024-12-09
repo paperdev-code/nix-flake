@@ -26,7 +26,7 @@
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#404040",
+          "foreground": "#a0a0a0",
           "properties": {
             "branch_ahead_icon": "<lightBlue>\u21e1 </>",
             "branch_behind_icon": "<lightBlue>\u21e3 </>",
