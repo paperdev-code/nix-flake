@@ -77,6 +77,10 @@ now(function()
     background = {
       dark = "mocha",
     },
+    styles = {
+      conditionals = {},
+      operators = { "bold" },
+    },
     transparent_background = true,
     color_overrides = {
       mocha = {
