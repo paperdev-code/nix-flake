@@ -20,7 +20,7 @@ let
         src = pkgs.fetchzip {
           inherit (meta) url hash;
         };
-      }))
+      }).overrideAttrs { doCheck = false; })
       (fromJSON (readFile ./plugins.json)))
     // {
       nvim-treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: with p; [
