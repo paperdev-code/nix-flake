@@ -50,7 +50,7 @@ in
 
     programs.neovim = {
       enable = true;
-      defaultEditor = true;
+      defaultEditor = true; #4559
 
       viAlias = true;
       vimAlias = true;
@@ -76,6 +76,11 @@ in
 
     home.file.".config/nvim/init.lua" = {
       source = ./init.lua;
+    };
+
+    #4559
+    hm-modules.nushell.envVars = {
+      EDITOR = "nvim";
     };
   };
 }
