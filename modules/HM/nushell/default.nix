@@ -5,7 +5,10 @@
 }:
 let
   inherit (builtins)
+    attrValues
+    concatStringsSep
     fromJSON
+    mapAttrs
     readFile;
 
   inherit (lib)
@@ -30,6 +33,11 @@ in
       type = types.bool;
       default = true;
     };
+
+    envVars = mkOption {
+      type = types.attrs;
+      default = {};
+    };
   };
 
   config = mkIf opts.enable (mkMerge [
@@ -38,7 +46,9 @@ in
         enable = true;
         package = pkgs.nushell;
         configFile.text = (readFile ./config.nu);
-        envFile.text = (readFile ./env.nu);
+        envFile.text = (readFile ./env.nu) + ''
+          ${concatStringsSep "\n" (attrValues (mapAttrs (k: v: "$env.${k} = \"${v}\"" ) opts.envVars))}
+        '';
       };
 
       programs.oh-my-posh = {
