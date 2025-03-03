@@ -33,7 +33,10 @@
   };
 
   # docker
-  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 
   environment.systemPackages = [
     pkgs.wget
