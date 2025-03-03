@@ -26,6 +26,7 @@
   home.packages = with pkgs; [
     fastfetch
     trash-cli
+    systemctl-tui
     lazydocker
   ];
 
