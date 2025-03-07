@@ -35,8 +35,8 @@ in
     };
 
     envVars = mkOption {
-      type = types.attrs;
-      default = {};
+      type = with types; attrsOf str;
+      default = { };
     };
   };
 
