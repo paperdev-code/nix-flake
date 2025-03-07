@@ -8,6 +8,7 @@
   imports = [
     inputs.nixos-wsl.nixosModules.wsl
     (paths.module "locale")
+    (paths.module "cftunnel")
   ];
 
   wsl.enable = true;
@@ -17,6 +18,13 @@
     enable = true;
     timeZone = "Europe/Amsterdam";
     lcPrefix = "nl_NL";
+  };
+
+  modules.cftunnel = {
+    enable = true;
+    tunnels = {
+      "AIVD_Mainframe_WSL_Tunnel" = { };
+    };
   };
 
   # usbip support through WSL
