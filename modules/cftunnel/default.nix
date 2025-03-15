@@ -32,7 +32,6 @@ in
       in
       {
         enable = true;
-        user = primaryUser;
         tunnels = (mapAttrs
           (name: ingress: {
             credentialsFile = "${homeDir}/.cloudflared/${name}.json";
