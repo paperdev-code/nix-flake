@@ -41,9 +41,9 @@
   };
 
   # docker
-  virtualisation.docker.rootless = {
+  virtualisation.docker = {
     enable = true;
-    setSocketVariable = true;
+    # setSocketVariable = true;
   };
 
   environment.systemPackages = [

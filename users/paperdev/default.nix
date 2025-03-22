@@ -9,6 +9,7 @@
       extraGroups = [
         "wheel"
         "plugdev"
+        "docker"
       ];
 
       shell = pkgs.nushell;
