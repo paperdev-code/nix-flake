@@ -8,6 +8,7 @@
     ./git.nix
     (paths.module "HM/nushell")
     (paths.module "HM/neovim")
+    (paths.module "registry")
   ];
 
   home.username = "paperdev";
@@ -29,6 +30,11 @@
     systemctl-tui
     lazydocker
   ];
+
+  modules.registry = {
+    "zls" = "github:zigtools/zls";
+    "zig" = "github:mitchellh/zig-overlay";
+  };
 
   home.stateVersion = stateVersion;
 }
