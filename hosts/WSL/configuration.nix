@@ -2,6 +2,7 @@
 , pkgs
 , paths
 , primaryUser
+, lib
 , ...
 }:
 {
@@ -23,7 +24,10 @@
   modules.cftunnel = {
     enable = true;
     tunnels = {
-      "AIVD_Mainframe_WSL_Tunnel" = { };
+      "AIVD_Mainframe_WSL" = {
+        active = false;
+        ingress = { };
+      };
     };
   };
 
