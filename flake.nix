@@ -42,6 +42,12 @@
       treefmtEval = eachSystem (pkgs: treefmt.lib.evalModule pkgs ./treefmt.nix);
     in
     {
+      nixosModules = nixpkgs.lib.genAttrs [
+        "cftunnel"
+        "locale"
+        "registry"
+      ] (name: lib.paths.module name);
+
       nixosConfigurations = lib.nixos.mkSystems {
         AIVD-Mainframe-WSL = {
           system = "x86_64-linux";
