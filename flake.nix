@@ -50,6 +50,11 @@
         "registry"
       ] (name: lib.paths.module name);
 
+      hmModules = nixpkgs.lib.genAttrs [
+        "neovim"
+        "nushell"
+      ] (name: lib.paths.module "HM/${name}");
+
       nixosConfigurations = lib.nixos.mkSystems {
         AIVD-Mainframe-WSL = {
           system = "x86_64-linux";
