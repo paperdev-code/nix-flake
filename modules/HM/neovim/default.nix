@@ -9,6 +9,7 @@ let
     mapAttrs
     readFile
     fromJSON
+    attrValues
     ;
 
   inherit (lib)
@@ -63,22 +64,7 @@ in
       vimAlias = true;
       vimdiffAlias = true;
 
-      plugins = with plugins; [
-        catppuccin
-        gitsigns-nvim
-        indent-blankline-nvim
-        mini-nvim
-        nvim-lspconfig
-        nvim-web-devicons
-        persistence-nvim
-        toggleterm-nvim
-        which-key-nvim
-        nvim-treesitter
-        luasnip
-        nvim-cmp
-        cmp-nvim-lsp
-        lspkind-nvim
-      ];
+      plugins = attrValues plugins;
     };
 
     home.file.".config/nvim/init.lua" = {
