@@ -1,7 +1,8 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 let
   inherit (builtins)
@@ -9,14 +10,16 @@ let
     concatStringsSep
     fromJSON
     mapAttrs
-    readFile;
+    readFile
+    ;
 
   inherit (lib)
     mkIf
     mkEnableOption
     mkOption
     mkMerge
-    types;
+    types
+    ;
 
   opts = config.hm-modules.nushell;
 in
@@ -46,9 +49,11 @@ in
         enable = true;
         package = pkgs.nushell;
         configFile.text = (readFile ./config.nu);
-        envFile.text = (readFile ./env.nu) + ''
-          ${concatStringsSep "\n" (attrValues (mapAttrs (k: v: "$env.${k} = \"${v}\"" ) opts.envVars))}
-        '';
+        envFile.text =
+          (readFile ./env.nu)
+          + ''
+            ${concatStringsSep "\n" (attrValues (mapAttrs (k: v: "$env.${k} = \"${v}\"") opts.envVars))}
+          '';
       };
 
       programs.oh-my-posh = {

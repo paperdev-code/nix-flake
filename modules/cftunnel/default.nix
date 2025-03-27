@@ -1,11 +1,13 @@
-{ config
-, lib
-, primaryUser
-, ...
+{
+  config,
+  lib,
+  primaryUser,
+  ...
 }:
 let
   inherit (builtins)
-    mapAttrs;
+    mapAttrs
+    ;
 
   inherit (lib)
     mapAttrs'
@@ -14,7 +16,8 @@ let
     mkOption
     mkForce
     nameValuePair
-    types;
+    types
+    ;
 
   opts = config.modules.cftunnel;
 in
@@ -23,23 +26,28 @@ in
     enable = mkEnableOption "cloudflare tunnel";
 
     tunnels = mkOption {
-      type = with types; attrsOf (submodule (
-        { name, ... }: {
-          options = {
-            active = mkOption {
-              type = bool;
-              default = true;
-              description = "whether to activate the systemd service automatically.";
-            };
+      type =
+        with types;
+        attrsOf (
+          submodule (
+            { name, ... }:
+            {
+              options = {
+                active = mkOption {
+                  type = bool;
+                  default = true;
+                  description = "whether to activate the systemd service automatically.";
+                };
 
-            ingress = mkOption {
-              type = attrs;
-              default = { };
-              description = "see services.cloudflared.tunnels.<name>.ingress";
-            };
-          };
-        }
-      ));
+                ingress = mkOption {
+                  type = attrs;
+                  default = { };
+                  description = "see services.cloudflared.tunnels.<name>.ingress";
+                };
+              };
+            }
+          )
+        );
       default = { };
     };
   };
@@ -51,19 +59,24 @@ in
       in
       {
         enable = true;
-        tunnels = (mapAttrs
-          (name: tunnel: {
+        tunnels = (
+          mapAttrs (name: tunnel: {
             credentialsFile = "${homeDir}/.cloudflared/${name}.json";
             default = "http_status:404";
             inherit (tunnel) ingress;
-          })
-          opts.tunnels);
+          }) opts.tunnels
+        );
       };
 
-    systemd.services = (mapAttrs'
-      (name: config: nameValuePair "cloudflared-tunnel-${name}" (mkIf (!config.active) {
-        wantedBy = mkForce [ ];
-      }))
-      opts.tunnels);
+    systemd.services = (
+      mapAttrs' (
+        name: config:
+        nameValuePair "cloudflared-tunnel-${name}" (
+          mkIf (!config.active) {
+            wantedBy = mkForce [ ];
+          }
+        )
+      ) opts.tunnels
+    );
   };
 }

@@ -1,7 +1,8 @@
-{ stateVersion
-, paths
-, pkgs
-, ...
+{
+  stateVersion,
+  paths,
+  pkgs,
+  ...
 }:
 {
   imports = [
@@ -38,4 +39,3 @@
 
   home.stateVersion = stateVersion;
 }
-

@@ -1,15 +1,18 @@
-{ config
-, lib
-, ...
+{
+  config,
+  lib,
+  ...
 }:
 let
   inherit (builtins)
     split
     head
     elemAt
-    mapAttrs;
+    mapAttrs
+    ;
 
-  parseFlake = alias: flake:
+  parseFlake =
+    alias: flake:
     let
       type_src = split ":" flake;
       type = head type_src;
@@ -30,7 +33,8 @@ let
 
   inherit (lib)
     mkOption
-    types;
+    types
+    ;
 
   opts = config.modules.registry;
 in

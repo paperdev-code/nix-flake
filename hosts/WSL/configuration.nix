@@ -1,8 +1,9 @@
-{ inputs
-, pkgs
-, paths
-, primaryUser
-, ...
+{
+  inputs,
+  pkgs,
+  paths,
+  primaryUser,
+  ...
 }:
 {
   imports = [

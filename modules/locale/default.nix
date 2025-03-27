@@ -1,13 +1,15 @@
-{ config
-, lib
-, ...
+{
+  config,
+  lib,
+  ...
 }:
 let
   inherit (lib)
     mkIf
     mkEnableOption
     mkOption
-    types;
+    types
+    ;
 
   opts = config.modules.locale;
 in

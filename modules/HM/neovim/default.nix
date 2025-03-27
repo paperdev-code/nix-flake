@@ -1,38 +1,45 @@
-{ config
-, pkgs
-, lib
-, ...
+{
+  config,
+  pkgs,
+  lib,
+  ...
 }:
 let
   inherit (builtins)
     mapAttrs
     readFile
-    fromJSON;
+    fromJSON
+    ;
 
   inherit (lib)
     mkIf
-    mkEnableOption;
+    mkEnableOption
+    ;
 
   plugins =
-    (mapAttrs
-      (name: meta: (pkgs.vimUtils.buildVimPlugin {
+    (mapAttrs (
+      name: meta:
+      (pkgs.vimUtils.buildVimPlugin {
         inherit name;
         src = pkgs.fetchzip {
           inherit (meta) url hash;
         };
-      }).overrideAttrs { doCheck = false; })
-      (fromJSON (readFile ./plugins.json)))
+      }).overrideAttrs
+        { doCheck = false; }
+    ) (fromJSON (readFile ./plugins.json)))
     // {
-      nvim-treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: with p; [
-        c
-        cpp
-        lua
-        nix
-        python
-        zig
-        vimdoc
-        nu
-      ]);
+      nvim-treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins (
+        p: with p; [
+          c
+          cpp
+          lua
+          nix
+          python
+          zig
+          vimdoc
+          nu
+        ]
+      );
     };
 
   opts = config.hm-modules.neovim;
@@ -50,7 +57,7 @@ in
 
     programs.neovim = {
       enable = true;
-      defaultEditor = true; #4559
+      defaultEditor = true; # 4559
 
       viAlias = true;
       vimAlias = true;

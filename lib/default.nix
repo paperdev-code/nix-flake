@@ -1,5 +1,6 @@
-{ nixpkgs
-, self
+{
+  nixpkgs,
+  self,
 }:
 let
   lib = {
@@ -8,4 +9,3 @@ let
   };
 in
 lib
-

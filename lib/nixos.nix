@@ -1,15 +1,18 @@
-{ lib
-, self
-, nixpkgs
+{
+  lib,
+  self,
+  nixpkgs,
 }:
 let
   inherit (builtins) mapAttrs elemAt;
   inherit (lib) paths;
 in
 {
-  mkSystems = configs:
-    mapAttrs
-      (hostname: conf: nixpkgs.lib.nixosSystem rec {
+  mkSystems =
+    configs:
+    mapAttrs (
+      hostname: conf:
+      nixpkgs.lib.nixosSystem rec {
         inherit (conf) system;
 
         pkgs = import nixpkgs {
@@ -43,6 +46,6 @@ in
           }
           (paths.host hostname)
         ] ++ (paths.users conf.users);
-      })
-      configs;
+      }
+    ) configs;
 }
