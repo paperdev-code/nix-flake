@@ -6,18 +6,18 @@
   },
   "cmp-nvim-lsp": {
     "_github": "hrsh7th/cmp-nvim-lsp:latest",
-    "hash": "sha256-CT1+Z4XJBVsl/RqvJeGmyitD6x7So0ylXvvef5jh7I8=",
-    "url": "https://github.com/hrsh7th/cmp-nvim-lsp/archive/39e2eda76828d88b773cc27a3f61d2ad782c922d.tar.gz"
+    "hash": "sha256-iaihXNCF5bB5MdeoosD/kc3QtpA/QaIDZVLiLIurBSM=",
+    "url": "https://github.com/hrsh7th/cmp-nvim-lsp/archive/99290b3ec1322070bcfb9e846450a46f6efa50f0.tar.gz"
   },
   "gitsigns-nvim": {
     "_github": "lewis6991/gitsigns.nvim:tagged",
-    "hash": "sha256-AbnjBqKLhOGMGBXBnu9zbL3PG7rKmAoYtxY17kzFEIA=",
-    "url": "https://github.com/lewis6991/gitsigns.nvim/archive/refs/tags/v0.9.0.tar.gz"
+    "hash": "sha256-qWusbKY+3d1dkW5oLYDyfSLdt1qFlJdDeXgFWqQ4hUI=",
+    "url": "https://github.com/lewis6991/gitsigns.nvim/archive/refs/tags/v1.0.2.tar.gz"
   },
   "indent-blankline-nvim": {
     "_github": "lukas-reineke/indent-blankline.nvim:tagged",
-    "hash": "sha256-H3lUQZDvgj3a2STYeMUDiOYPe7rfsy08tJ4SlDd+LuE=",
-    "url": "https://github.com/lukas-reineke/indent-blankline.nvim/archive/refs/tags/v3.8.6.tar.gz"
+    "hash": "sha256-0q/V+b4UrDRnaC/eRWOi9HU9a61vQSAM9/C8ZQyKt+Y=",
+    "url": "https://github.com/lukas-reineke/indent-blankline.nvim/archive/refs/tags/v3.9.0.tar.gz"
   },
   "lspkind-nvim": {
     "_github": "onsails/lspkind.nvim:latest",
@@ -26,23 +26,23 @@
   },
   "luasnip": {
     "_github": "l3mon4d3/luasnip:latest",
-    "hash": "sha256-efDe3RXncnNVkj37AmIv8oj0DKurB50Dziao5FGTLP4=",
-    "url": "https://github.com/l3mon4d3/luasnip/archive/33b06d72d220aa56a7ce80a0dd6f06c70cd82b9d.tar.gz"
+    "hash": "sha256-3ecm5SDTcSOh256xSQPHhddQfMpepiEIpv58fHXrVg0=",
+    "url": "https://github.com/l3mon4d3/luasnip/archive/c9b9a22904c97d0eb69ccb9bab76037838326817.tar.gz"
   },
   "mini-nvim": {
     "_github": "echasnovski/mini.nvim:tagged",
-    "hash": "sha256-EWV/XWVdxA/7gt4482Vv62j4b/x6DdzfnV4EnPvp0HM=",
-    "url": "https://github.com/echasnovski/mini.nvim/archive/refs/tags/v0.14.0.tar.gz"
+    "hash": "sha256-YzCqe1Z1LLs/E1AJ+I577RHzbaOMoxsZodwg9foVpYI=",
+    "url": "https://github.com/echasnovski/mini.nvim/archive/refs/tags/v0.15.0.tar.gz"
   },
   "nvim-cmp": {
     "_github": "hrsh7th/nvim-cmp:latest",
-    "hash": "sha256-+0nflL0WCaxPuJgUviELhbXASNYYl/SKZ+nz70sEAXU=",
-    "url": "https://github.com/hrsh7th/nvim-cmp/archive/ca4d3330d386e76967e53b85953c170658255ecb.tar.gz"
+    "hash": "sha256-zl/rgbZF3+nsLI7Sd6xzQFlcpa5n/8pyganS+u0jD/s=",
+    "url": "https://github.com/hrsh7th/nvim-cmp/archive/1e1900b0769324a9675ef85b38f99cca29e203b3.tar.gz"
   },
   "nvim-lspconfig": {
     "_github": "neovim/nvim-lspconfig:tagged",
-    "hash": "sha256-6xUVOCdc8dKnJg89sV7A3UbfXrBtoLoFzqkxrNBWzGw=",
-    "url": "https://github.com/neovim/nvim-lspconfig/archive/refs/tags/v1.0.0.tar.gz"
+    "hash": "sha256-f6c/1Vj0nBgQ2Vs9+23bVBpur6+eIF/ljIQ0hSdnIHk=",
+    "url": "https://github.com/neovim/nvim-lspconfig/archive/refs/tags/v1.7.0.tar.gz"
   },
   "nvim-web-devicons": {
     "_github": "nvim-tree/nvim-web-devicons:tagged",
@@ -56,12 +56,12 @@
   },
   "toggleterm-nvim": {
     "_github": "akinsho/toggleterm.nvim:tagged",
-    "hash": "sha256-RKDVxkiko7WZLsjAZaDCKTsmKPoSK91YjQ8INJwlgDE=",
-    "url": "https://github.com/akinsho/toggleterm.nvim/archive/refs/tags/v2.13.0.tar.gz"
+    "hash": "sha256-Xc3TZUA6glsuchignUSk4gLZs1IBvI+YnWeP1r+snbQ=",
+    "url": "https://github.com/akinsho/toggleterm.nvim/archive/refs/tags/v2.13.1.tar.gz"
   },
   "which-key-nvim": {
     "_github": "folke/which-key.nvim:tagged",
-    "hash": "sha256-55RmbdN0rNG8946eIMFd5BlN82eY1GKqmHdUiC7BP+U=",
-    "url": "https://github.com/folke/which-key.nvim/archive/refs/tags/v3.14.1.tar.gz"
+    "hash": "sha256-kYpiw2Syu54B/nNVqTZeUHJIPNzAv3JpFaMWR9Ai3p4=",
+    "url": "https://github.com/folke/which-key.nvim/archive/refs/tags/v3.17.0.tar.gz"
   }
 }
