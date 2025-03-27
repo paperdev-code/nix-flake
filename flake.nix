@@ -42,6 +42,8 @@
       treefmtEval = eachSystem (pkgs: treefmt.lib.evalModule pkgs ./treefmt.nix);
     in
     {
+      inherit lib;
+
       nixosModules = nixpkgs.lib.genAttrs [
         "cftunnel"
         "locale"
