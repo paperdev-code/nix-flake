@@ -31,7 +31,6 @@
       nixosConfigurations = lib.nixos.mkSystems {
         "AIVD-Mainframe-WSL" = {
           system = "x86_64-linux";
-          derivedFromHost = "WSL";
           users = [ "paperdev" ];
           stateVersion = "24.11";
         };

@@ -41,7 +41,7 @@ in
             networking.hostName = hostname;
             system.stateVersion = conf.stateVersion;
           }
-          (paths.host (conf.derivedFromHost or hostname))
+          (paths.host hostname)
         ] ++ (paths.users conf.users);
       })
       configs;
