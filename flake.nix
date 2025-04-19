@@ -44,16 +44,18 @@
     {
       inherit lib;
 
-      nixosModules = nixpkgs.lib.genAttrs [
-        "cftunnel"
-        "locale"
-        "registry"
-      ] (name: lib.paths.module name);
-
-      hmModules = nixpkgs.lib.genAttrs [
-        "neovim"
-        "nushell"
-      ] (name: lib.paths.module "HM/${name}");
+      nixosModules =
+        nixpkgs.lib.genAttrs [
+          "cftunnel"
+          "locale"
+          "registry"
+        ] (name: lib.paths.module name)
+        // {
+          hm-modules = nixpkgs.lib.genAttrs [
+            "neovim"
+            "nushell"
+          ] (name: lib.paths.module "HM/${name}");
+        };
 
       nixosConfigurations = lib.nixos.mkSystems {
         AIVD-Mainframe-WSL = {
